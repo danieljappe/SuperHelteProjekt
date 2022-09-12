@@ -22,6 +22,8 @@ public class Superhelte {
 
     public String getNavn(){
         return navn;
+
+
     }
     public String getSuperkraft(){
         return superkraft;
