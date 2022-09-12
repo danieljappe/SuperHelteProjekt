@@ -2,24 +2,13 @@ public class Database {
 
     private Superhelte superhelte = new Superhelte();
 
-    public void Superhelte() {
-        Superhelte helt1 = new Superhelte(superhelte.getNavn(), superhelte.getSuperkraft(),
-                superhelte.getMenneske(), superhelte.getIntroÅr(), superhelte.getStrength());
+    public void createSuperhelt(String navn, String superkraft, boolean menneske, int introÅr, double strength) {
 
-        /*Superhelte helt2 = new Superhelte(superhelte.getNavn(), superhelte.getSuperkraft(),
-                superhelte.getMenneske(), superhelte.getIntroÅr(), superhelte.getStrength());
+        Superhelte superhelt = new Superhelte(navn,superkraft,menneske,introÅr,strength);
 
-        Superhelte helt3 = new Superhelte(superhelte.getNavn(), superhelte.getSuperkraft(),
-                superhelte.getMenneske(), superhelte.getIntroÅr(), superhelte.getStrength());
-
-        Superhelte helt4 = new Superhelte(superhelte.getNavn(), superhelte.getSuperkraft(),
-                superhelte.getMenneske(), superhelte.getIntroÅr(), superhelte.getStrength());
-
-        Superhelte helt5 = new Superhelte(superhelte.getNavn(), superhelte.getSuperkraft(),
-                superhelte.getMenneske(), superhelte.getIntroÅr(), superhelte.getStrength());*/
-
-        Superhelte[] helteArray = new Superhelte[]{helt1};
+        Superhelte[] helteArray = new Superhelte[]{superhelt};
 
     }
+
 
 }
