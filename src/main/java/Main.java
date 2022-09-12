@@ -23,8 +23,6 @@ public class Main {
         System.out.println("Indtast strength");
         double strength = brugerInput.nextDouble();
 
-        Superhelte brugerSuperhelt = new Superhelte(navn,superkraft,menneske,introÅr,strength);
-
 
     }
 }

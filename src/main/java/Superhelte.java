@@ -1,4 +1,5 @@
 public class Superhelte {
+
     private String navn;
     private String superkraft;
     private String menneske; // boolean?
@@ -12,6 +13,10 @@ public class Superhelte {
         this.introÅr = introÅr;
         this.strength = strength;
 
+    }
+
+    public Superhelte() {
+        Superhelte brugerSuperhelt = new Superhelte(navn,superkraft,menneske,introÅr,strength);
     }
 
 
