@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void Main(String[] args) {
+    public static void main(String[] args) {
 
         Scanner brugerInput = new Scanner(System.in);
 
@@ -22,6 +22,7 @@ public class Main {
 
         System.out.println("Indtast strength");
         double strength = brugerInput.nextDouble();
+
 
 
     }

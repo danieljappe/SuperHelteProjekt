@@ -6,7 +6,7 @@ public class Database {
         Superhelte helt1 = new Superhelte(superhelte.getNavn(), superhelte.getSuperkraft(),
                 superhelte.getMenneske(), superhelte.getIntroÅr(), superhelte.getStrength());
 
-        /*Superhelte helt2 = new Superhelte(superhelte.getNavn(), superhelte.getSuperkraft(),
+        Superhelte helt2 = new Superhelte(superhelte.getNavn(), superhelte.getSuperkraft(),
                 superhelte.getMenneske(), superhelte.getIntroÅr(), superhelte.getStrength());
 
         Superhelte helt3 = new Superhelte(superhelte.getNavn(), superhelte.getSuperkraft(),
@@ -17,7 +17,9 @@ public class Database {
 
         Superhelte helt5 = new Superhelte(superhelte.getNavn(), superhelte.getSuperkraft(),
                 superhelte.getMenneske(), superhelte.getIntroÅr(), superhelte.getStrength());
-                */
+
+        Superhelte[] helteArray = new Superhelte[]{helt1, helt2, helt3, helt4, helt5};
+
 
     }
 
