@@ -2,14 +2,14 @@ public class Superhelte {
 
     private String navn;
     private String superkraft;
-    private char menneske;
+    private String erMenneske;
     private int introÅr;
     private double strength;
 
-    public Superhelte(String navn, String superkraft, char menneske, int introÅr, double strength) {
+    public Superhelte(String navn, String superkraft, String erMenneske, int introÅr, double strength) {
         this.navn = navn;
         this.superkraft = superkraft;
-        this.menneske = menneske;
+        this.erMenneske = erMenneske;
         this.introÅr = introÅr;
         this.strength = strength;
     }
@@ -20,8 +20,8 @@ public class Superhelte {
     public String getSuperkraft(){
         return superkraft;
     }
-    public char getMenneske(){
-        return menneske;
+    public String getMenneske(){
+        return erMenneske;
     }
     public int getIntroÅr(){
         return introÅr;

@@ -4,7 +4,7 @@ public class Database {
 
     private ArrayList<Superhelte> superhelteArrayList = new ArrayList<>();
 
-    public void createSuperhelt(String navn, String superkraft, char erMenneske, int introÅr, double strength) {
+    public void createSuperhelt(String navn, String superkraft, String erMenneske, int introÅr, double strength) {
 
         Superhelte superhelt = new Superhelte(navn,superkraft,erMenneske,introÅr,strength);
         superhelteArrayList.add(superhelt);

@@ -31,18 +31,13 @@ public class Main {
         System.out.print("Indtast en superkraft: ");
         String superkraft = brugerInput.nextLine();
 
-        System.out.print("Er din helt et menneske? true / false ");
-        char menneske = brugerInput.nextLine().charAt(0);
-        if (menneske == 'n') {
-            System.out.println("Nej");
-        } else if (menneske == 'j') {
-            System.out.println("Ja");
-        }
+        System.out.print("Er din helt et menneske? ");
+        String menneske = brugerInput.nextLine();
 
-        System.out.print("Indtast introduktionsår ");
+        System.out.print("Indtast introduktionsår: ");
         int introÅr = brugerInput.nextInt();
 
-        System.out.print("Indtast strength ");
+        System.out.print("Indtast strength (Et menneske svarer til 1.0): ");
         double strength = brugerInput.nextDouble();
 
         database.createSuperhelt(navn,superkraft,menneske,introÅr,strength);
@@ -52,8 +47,9 @@ public class Main {
     public void seHelte() {
         System.out.println("Her kan du se listen over gemte helte:\n" +
                             "-------------------------------------");
-        for (Object helt : database.getSuperhelteArrayList())
-            System.out.println(helt);
+        for (Superhelte helt : database.getSuperhelteArrayList())
+            System.out.println("Navn: " + helt.getNavn() + "\nSuperkraft: " + helt.getSuperkraft() + "\nEr menneske: " + helt.getMenneske() +
+                                                "\nIntroduktionsår: " + helt.getIntroÅr() + "\nStrength: " + helt.getStrength() + "\n");
 
         startMenu();
     }
