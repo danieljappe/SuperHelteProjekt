@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class Main {
 
+    Database database = new Database();
+
     int valg;
     Scanner brugerInput = new Scanner(System.in);
 
@@ -11,34 +13,37 @@ public class Main {
         System.out.println("9: Afslut program");
         int valg = brugerInput.nextInt();
         if (valg == 1) {
-        opretHelt();
+            opretHelt();
         } else if (valg == 9) {
             System.exit(0);
         }
     }
 
-public void opretHelt() {
+    public void opretHelt() {
+        System.out.println("Her kan du oprette din helt.");
+        System.out.print("Indtast et superhelte navn: ");
+        String navn = brugerInput.next();
 
-    System.out.println("Indtast et superhelte navn:");
-    String navn = brugerInput.nextLine();
+        System.out.print("Indtast en superkraft: ");
+        String superkraft = brugerInput.next();
 
-    System.out.println("Indtast en superkraft:");
-    String superkraft = brugerInput.nextLine();
+        System.out.print("Er din helt et menneske? true / false ");
+        boolean menneske = brugerInput.nextBoolean();
 
-    System.out.println("Er din helt et menneske?");
-    String menneske = brugerInput.nextLine();
+        System.out.print("Indtast introduktionsår ");
+        int introÅr = brugerInput.nextInt();
 
-    System.out.println("Indtast introduktionsår");
-    int introÅr = brugerInput.nextInt();
+        System.out.print("Indtast strength ");
+        double strength = brugerInput.nextDouble();
 
-    System.out.println("Indtast strength");
-    double strength = brugerInput.nextDouble();
+        database.createSuperhelt(navn,superkraft,menneske,introÅr,strength);
 
+        startMenu();
 
-}
+    }
 
     public static void main(String[] args) {
-        Main program= new Main();
+        Main program = new Main();
         program.startMenu();
 
     }

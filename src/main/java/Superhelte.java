@@ -15,7 +15,7 @@ public class Superhelte {
     }
 
     public Superhelte() {
-
+        Superhelte superhelte = new Superhelte(navn,superkraft,menneske,introÅr,strength);
     }
 
 
