@@ -10,11 +10,7 @@ public class Database {
         superhelteArrayList.add(superhelt);
     }
 
-    public void seSuperhelte() {
-        for (Object helt : superhelteArrayList) {
-            System.out.println(helt);
-        }
+    public ArrayList<Superhelte> getSuperhelteArrayList() {
+        return superhelteArrayList;
     }
-
-
 }

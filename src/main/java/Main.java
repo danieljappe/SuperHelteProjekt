@@ -46,7 +46,8 @@ public class Main {
     public void seHelte() {
         System.out.println("Her kan du se listen over gemte helte:\n" +
                             "-------------------------------------");
-        database.seSuperhelte();
+        for (Object helt : database.getSuperhelteArrayList())
+            System.out.println(helt);
 
         startMenu();
     }
