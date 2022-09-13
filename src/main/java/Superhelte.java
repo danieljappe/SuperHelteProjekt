@@ -2,11 +2,11 @@ public class Superhelte {
 
     private String navn;
     private String superkraft;
-    private boolean menneske;
+    private char menneske;
     private int introÅr;
     private double strength;
 
-    public Superhelte(String navn, String superkraft, boolean menneske, int introÅr, double strength) {
+    public Superhelte(String navn, String superkraft, char menneske, int introÅr, double strength) {
         this.navn = navn;
         this.superkraft = superkraft;
         this.menneske = menneske;
@@ -20,7 +20,7 @@ public class Superhelte {
     public String getSuperkraft(){
         return superkraft;
     }
-    public boolean getMenneske(){
+    public char getMenneske(){
         return menneske;
     }
     public int getIntroÅr(){
@@ -30,11 +30,5 @@ public class Superhelte {
         return strength;
     }
 
-    // toString :O
-    @Override
-    public String toString() {
-    return "Navn: " + navn + "\nSuperkraft: " + superkraft + "\nEr menneske " + menneske +
-        "\nIntroduktionsår: " +introÅr + "\nStyrke: " + strength;
-    }
 
 }

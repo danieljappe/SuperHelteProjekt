@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Main {
 
     Database database = new Database();
+
     int valg;
     Scanner brugerInput = new Scanner(System.in);
 
@@ -31,7 +32,12 @@ public class Main {
         String superkraft = brugerInput.nextLine();
 
         System.out.print("Er din helt et menneske? true / false ");
-        boolean menneske = brugerInput.nextBoolean();
+        char menneske = brugerInput.nextLine().charAt(0);
+        if (menneske == 'n') {
+            System.out.println("Nej");
+        } else if (menneske == 'j') {
+            System.out.println("Ja");
+        }
 
         System.out.print("Indtast introduktionsår ");
         int introÅr = brugerInput.nextInt();
