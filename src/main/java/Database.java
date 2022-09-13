@@ -1,13 +1,19 @@
+import java.util.ArrayList;
+
 public class Database {
+
+    private ArrayList<Superhelte> superhelteArrayList = new ArrayList<>();
 
     public void createSuperhelt(String navn, String superkraft, boolean erMenneske, int introÅr, double strength) {
 
-        Superhelte superhelt1 = new Superhelte(navn,superkraft,erMenneske,introÅr,strength);
+        Superhelte superhelt = new Superhelte(navn,superkraft,erMenneske,introÅr,strength);
+        superhelteArrayList.add(superhelt);
+    }
 
-        System.out.println(superhelt1.getNavn());
-
-        /* Superhelte[] helteArray = new Superhelte[]{superhelt}; */
-
+    public void seSuperhelte() {
+        for (Object helt : superhelteArrayList) {
+            System.out.println(helt);
+        }
     }
 
 

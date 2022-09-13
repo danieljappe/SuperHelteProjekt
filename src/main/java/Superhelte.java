@@ -14,11 +14,6 @@ public class Superhelte {
         this.strength = strength;
     }
 
-    public Superhelte() {
-        Superhelte superhelte = new Superhelte(navn,superkraft,menneske,introÅr,strength);
-    }
-
-
     public String getNavn(){
         return navn;
     }
@@ -35,5 +30,11 @@ public class Superhelte {
         return strength;
     }
 
+    // toString :O
+    @Override
+    public String toString() {
+    return "Navn: " + navn + "\nSuperkraft: " + superkraft + "\nEr menneske " + menneske +
+        "\nIntroduktionsår: " +introÅr + "\nStyrke: " + strength;
+    }
 
 }
