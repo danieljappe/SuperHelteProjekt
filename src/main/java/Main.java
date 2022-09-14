@@ -5,20 +5,23 @@ public class Main {
     Database database = new Database();
 
     int valg;
-    Scanner brugerInput = new Scanner(System.in);
+    Scanner scan = new Scanner(System.in);
 
     public void startMenu() {
        do {
            System.out.println("\nVelkommen til Superhelte-databasen\n");
            System.out.println("1: Opret din superhelt");
-           System.out.println("2. Se listen over helte");
+           System.out.println("2: Se listen over helte");
+           System.out.println("3: Find en helt i databsen");
            System.out.println("9: Afslut program");
-           int valg = brugerInput.nextInt();
-           brugerInput.nextLine(); // Fix for scanner bug
+           int valg = scan.nextInt();
+           scan.nextLine(); // Fix for scanner bug
            if (valg == 1) {
                opretHelt();
            } else if (valg == 2) {
                seHelte();
+           } else if (valg == 3) {
+               søgPåHelt();
            } else if (valg == 9) {
                System.out.println("Lukker program...");
                System.exit(0);
@@ -29,19 +32,20 @@ public class Main {
     public void opretHelt() {
         System.out.println("Her kan du oprette din helt.");
         System.out.print("Indtast et superhelte navn: ");
-        String navn = brugerInput.nextLine();
+        String navn = scan.nextLine();
 
         System.out.print("Indtast en superkraft: ");
-        String superkraft = brugerInput.nextLine();
+        String superkraft = scan.nextLine();
 
         System.out.print("Er din helt et menneske? ");
-        String menneske = brugerInput.nextLine();
+        String menneske = scan.nextLine();
+
 
         System.out.print("Indtast introduktionsår: ");
-        int introÅr = brugerInput.nextInt();
+        int introÅr = scan.nextInt();
 
         System.out.print("Indtast strength (Et menneske svarer til 1.0): ");
-        double strength = brugerInput.nextDouble();
+        double strength = scan.nextDouble();
 
         database.createSuperhelt(navn,superkraft,menneske,introÅr,strength);
     }
@@ -49,9 +53,18 @@ public class Main {
     public void seHelte() {
         System.out.println("Her kan du se listen over gemte helte:\n" +
                             "-------------------------------------");
-        for (Superhelte helt : database.getSuperhelteArrayList())
+        for (Superhelt helt : database.getSuperhelteArrayList())
             System.out.println("Navn: " + helt.getNavn() + "\nSuperkraft: " + helt.getSuperkraft() + "\nEr menneske: " + helt.getMenneske() +
                                                 "\nIntroduktionsår: " + helt.getIntroÅr() + "\nStrength: " + helt.getStrength() + "\n");
+
+    }
+
+    public void søgPåHelt() {
+        System.out.println("Søg på din helt: ");
+        String searchTerm = scan.nextLine();
+        Superhelt superhelt = database.searchFor(searchTerm);
+        System.out.println(superhelt);
+
 
     }
 

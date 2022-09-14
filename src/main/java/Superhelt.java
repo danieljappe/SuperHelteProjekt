@@ -1,4 +1,4 @@
-public class Superhelte {
+public class Superhelt {
 
     private String navn;
     private String superkraft;
@@ -6,7 +6,7 @@ public class Superhelte {
     private int introÅr;
     private double strength;
 
-    public Superhelte(String navn, String superkraft, String erMenneske, int introÅr, double strength) {
+    public Superhelt(String navn, String superkraft, String erMenneske, int introÅr, double strength) {
         this.navn = navn;
         this.superkraft = superkraft;
         this.erMenneske = erMenneske;
@@ -30,5 +30,10 @@ public class Superhelte {
         return strength;
     }
 
+    @Override
+    public String toString() {
+        return "Navn: " + navn + "\nSuperkraft: " + superkraft + "\nEr menneske: " +
+                erMenneske + "\nIntroduktionsår: " + introÅr + "\nStrength: " + strength;
+    }
 
 }
