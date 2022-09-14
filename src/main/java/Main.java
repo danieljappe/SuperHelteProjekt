@@ -8,19 +8,22 @@ public class Main {
     Scanner brugerInput = new Scanner(System.in);
 
     public void startMenu() {
-        System.out.println("\nVelkommen til Superhelte-databasen\n");
-        System.out.println("1: Opret din superhelt");
-        System.out.println("2. Se listen over helte");
-        System.out.println("9: Afslut program");
-        int valg = brugerInput.nextInt();
-        brugerInput.nextLine(); // Fix for scanner bug
-        if (valg == 1) {
-            opretHelt();
-        } else if (valg == 2) {
-            seHelte();
-        } else if (valg == 9) {
-            System.exit(0);
-        }
+       do {
+           System.out.println("\nVelkommen til Superhelte-databasen\n");
+           System.out.println("1: Opret din superhelt");
+           System.out.println("2. Se listen over helte");
+           System.out.println("9: Afslut program");
+           int valg = brugerInput.nextInt();
+           brugerInput.nextLine(); // Fix for scanner bug
+           if (valg == 1) {
+               opretHelt();
+           } else if (valg == 2) {
+               seHelte();
+           } else if (valg == 9) {
+               System.out.println("Lukker program...");
+               System.exit(0);
+           }
+       }while (valg != 9);
     }
 
     public void opretHelt() {
@@ -41,7 +44,6 @@ public class Main {
         double strength = brugerInput.nextDouble();
 
         database.createSuperhelt(navn,superkraft,menneske,introÅr,strength);
-        startMenu();
     }
 
     public void seHelte() {
@@ -51,7 +53,6 @@ public class Main {
             System.out.println("Navn: " + helt.getNavn() + "\nSuperkraft: " + helt.getSuperkraft() + "\nEr menneske: " + helt.getMenneske() +
                                                 "\nIntroduktionsår: " + helt.getIntroÅr() + "\nStrength: " + helt.getStrength() + "\n");
 
-        startMenu();
     }
 
     public static void main(String[] args) {
