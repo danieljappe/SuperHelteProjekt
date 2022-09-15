@@ -32,8 +32,8 @@ public class Superhelt {
 
     @Override
     public String toString() {
-        return "Navn: " + navn + "\nSuperkraft: " + superkraft + "\nEr menneske: " +
-                erMenneske + "\nIntroduktionsår: " + introÅr + "\nStrength: " + strength;
+        return "------------------------\nNavn: " + navn + "\nSuperkraft: " + superkraft + "\nEr menneske: " +
+                erMenneske + "\nIntroduktionsår: " + introÅr + "\nStrength: " + strength + "\n------------------------";
     }
 
 }

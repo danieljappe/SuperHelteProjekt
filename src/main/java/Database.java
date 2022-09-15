@@ -32,8 +32,3 @@ public class Database {
     }
 
 }
-//hero.getName().contains(searchTerm)
-//hero.getName().contains(searchTerm.toLowercase)
-
-//searchTerm == hero.getname()
-// searchTerm.equals(hero.getname)
