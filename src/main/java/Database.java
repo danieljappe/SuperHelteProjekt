@@ -1,9 +1,21 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Database {
 
     // Main arraylist
     private ArrayList<Superhelt> superhelteArrayList = new ArrayList<>();
+
+        public ArrayList<Superhelt> getSuperhelteArrayList() {
+            return superhelteArrayList;
+        }
+
+    // Arrayliste til søgeresultat
+    private ArrayList<Superhelt> søgeResultat = new ArrayList<>();
+
+        public ArrayList<Superhelt> getSøgeResultat() {
+            return søgeResultat;
+        }
 
     // Test data
     public Database(){
@@ -19,12 +31,10 @@ public class Database {
         superhelteArrayList.add(superhelt);
     }
 
-    public ArrayList<Superhelt> getSuperhelteArrayList() {
-        return superhelteArrayList;
-    }
+
 
     public Superhelt searchFor(String searchTerm) {
-        ArrayList<Superhelt> søgeResultat = new ArrayList<>();
+
         for (Superhelt hero : superhelteArrayList) {
             if (hero.getNavn().toLowerCase().contains(searchTerm.toLowerCase())) {
                 søgeResultat.add(hero);

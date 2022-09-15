@@ -17,18 +17,37 @@ public class Superhelt {
     public String getNavn(){
         return navn;
     }
+        public void setNavn(){
+            this.navn = navn;
+        }
+
     public String getSuperkraft(){
         return superkraft;
     }
+        public void setSuperkraft(String superkraft) {
+            this.superkraft = superkraft;
+        }
+
     public String getMenneske(){
         return erMenneske;
     }
+        public void setErMenneske(String erMenneske) {
+            this.erMenneske = erMenneske;
+        }
+
     public int getIntroÅr(){
         return introÅr;
     }
+        public void setIntroÅr(int introÅr) {
+            this.introÅr = introÅr;
+        }
+
     public double getStrength(){
         return strength;
     }
+        public void setStrength(){
+            this.strength = strength;
+        }
 
     @Override
     public String toString() {

@@ -11,6 +11,7 @@ public class UserInterface {
             System.out.println("1: Opret din superhelt");
             System.out.println("2: Se listen over helte");
             System.out.println("3: Find en helt i databsen");
+            System.out.println("4: Rediger en helt i databasen");
             System.out.println("9: Afslut program");
             int valg = scan.nextInt();
             scan.nextLine(); // Fix for scanner bug
@@ -20,6 +21,8 @@ public class UserInterface {
                 seHelte();
             } else if (valg == 3) {
                 søgPåHelt();
+            } else if (valg == 4) {
+                redigerHelt();
             } else if (valg == 9) {
                 System.out.println("Lukker program...");
                 System.exit(0);
@@ -60,8 +63,28 @@ public class UserInterface {
         System.out.println("Søg på din helt: ");
         String searchTerm = scan.nextLine();
         Superhelt superhelt = database.searchFor(searchTerm);
+    }
 
+    public void redigerHelt() {
+        for (int i=0; i< database.getSøgeResultat().size(); i++) {
+            System.out.println(i+1 + ":" + database.getSøgeResultat().get(i));
+        }
+
+        System.out.println("Indtast nummer på den helt der skal redigeres: ");
+        int nr = scan.nextInt();
+        scan.nextLine();
+
+        Superhelt editSuperhelt = database.getSøgeResultat().get(nr-1);
+        System.out.println("EDITPERSON:");
+
+        System.out.println("Rediger data og tryk enter / Hvis data ikke skal ændres tryk ENTER");
+        System.out.println("Navn: " + editSuperhelt.getNavn());
+        String nytNavn = scan.nextLine();
+        if (!nytNavn.isEmpty())
+            editSuperhelt.setNavn();
 
     }
 
-}
+    }
+
+
