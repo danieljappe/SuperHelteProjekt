@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Database {
 
+    // Main arraylist
     private ArrayList<Superhelt> superhelteArrayList = new ArrayList<>();
 
     // Test data
@@ -23,12 +24,20 @@ public class Database {
     }
 
     public Superhelt searchFor(String searchTerm) {
+        ArrayList<Superhelt> søgeResultat = new ArrayList<>();
         for (Superhelt hero : superhelteArrayList) {
             if (hero.getNavn().toLowerCase().contains(searchTerm.toLowerCase())) {
-                return hero;
+                søgeResultat.add(hero);
             }
         }
+                if (!søgeResultat.isEmpty())
+                    for (Superhelt hero : søgeResultat)
+                        System.out.println(hero);
+                else
+                    System.out.println("Inden matchende data fundet med: " + searchTerm);
         return null;
     }
+
+
 
 }

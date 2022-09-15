@@ -60,11 +60,7 @@ public class UserInterface {
         System.out.println("Søg på din helt: ");
         String searchTerm = scan.nextLine();
         Superhelt superhelt = database.searchFor(searchTerm);
-        if (superhelt != null) {
-            System.out.println("Helt:\n" + superhelt);
-        } else {
-            System.out.println("Ingen data fundet");
-        }
+
 
     }
 
