@@ -27,7 +27,7 @@ public class UserInterface {
                 System.out.println("Lukker program...");
                 System.exit(0);
             }
-        }while (valg != 9);
+        } while (valg != 9);
     }
 
     public void opretHelt() {
@@ -48,7 +48,7 @@ public class UserInterface {
         System.out.print("Indtast strength (Et menneske svarer til 1.0): ");
         double strength = scan.nextDouble();
 
-        database.createSuperhelt(navn,superkraft,menneske,introÅr,strength);
+        database.createSuperhelt(navn, superkraft, menneske, introÅr, strength);
     }
 
     public void seHelte() {
@@ -66,25 +66,45 @@ public class UserInterface {
     }
 
     public void redigerHelt() {
-        for (int i=0; i< database.getSøgeResultat().size(); i++) {
-            System.out.println(i+1 + ":" + database.getSøgeResultat().get(i));
+        for (int i = 0; i < database.getSuperhelteArrayList().size(); i++) {
+            System.out.println(i + 1 + ":" + database.getSuperhelteArrayList().get(i));
         }
 
         System.out.println("Indtast nummer på den helt der skal redigeres: ");
         int nr = scan.nextInt();
-        scan.nextLine();
+        scan.nextLine(); // scannerbug
 
-        Superhelt editSuperhelt = database.getSøgeResultat().get(nr-1);
-        System.out.println("EDITPERSON:");
+        Superhelt editSuperhelt = database.getSuperhelteArrayList().get(nr - 1); // index starter fra 0
+        System.out.println("Rediger helt: " + editSuperhelt);
 
         System.out.println("Rediger data og tryk enter / Hvis data ikke skal ændres tryk ENTER");
         System.out.println("Navn: " + editSuperhelt.getNavn());
         String nytNavn = scan.nextLine();
         if (!nytNavn.isEmpty())
-            editSuperhelt.setNavn();
+            editSuperhelt.setNavn(nytNavn);
+
+        System.out.println("Superkraft: " + editSuperhelt.getSuperkraft());
+        String nySuperkraft = scan.nextLine();
+        if (!nySuperkraft.isEmpty())
+            editSuperhelt.setSuperkraft(nySuperkraft);
+
+        System.out.println("Er menneske: " + editSuperhelt.getMenneske());
+        String nyErMenneske = scan.nextLine();
+        if (!nyErMenneske.isEmpty())
+            editSuperhelt.setErMenneske(nyErMenneske);
+
+        System.out.println("Introduktionsår: " + editSuperhelt.getIntroÅr());
+        String nyIntroÅr = scan.nextLine();
+        if (!nyIntroÅr.isEmpty())
+            editSuperhelt.setIntroÅr(Integer.parseInt(nyIntroÅr));
+
+        System.out.println("Strength: " + editSuperhelt.getStrength());
+        String nyStrength = scan.nextLine();
+        if (!nyStrength.isEmpty())
+            editSuperhelt.setStrength(Double.parseDouble(nyStrength));
 
     }
 
-    }
+}
 
 

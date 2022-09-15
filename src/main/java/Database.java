@@ -6,19 +6,19 @@ public class Database {
     // Main arraylist
     private ArrayList<Superhelt> superhelteArrayList = new ArrayList<>();
 
-        public ArrayList<Superhelt> getSuperhelteArrayList() {
-            return superhelteArrayList;
-        }
+    public ArrayList<Superhelt> getSuperhelteArrayList() {
+        return superhelteArrayList;
+    }
 
     // Arrayliste til søgeresultat
     private ArrayList<Superhelt> søgeResultat = new ArrayList<>();
 
-        public ArrayList<Superhelt> getSøgeResultat() {
-            return søgeResultat;
-        }
+    public ArrayList<Superhelt> getSøgeResultat() {
+        return søgeResultat;
+    }
 
     // Test data
-    public Database(){
+    public Database() {
         createSuperhelt("Batman", "Money", "Ja", 1965, 2);
         createSuperhelt("Superman", "Kan flyve", "Nej", 1922, 50);
         createSuperhelt("Spider-man", "Edderkoppekrafter", "Ja", 1946, 4);
@@ -32,7 +32,6 @@ public class Database {
     }
 
 
-
     public Superhelt searchFor(String searchTerm) {
 
         for (Superhelt hero : superhelteArrayList) {
@@ -40,14 +39,13 @@ public class Database {
                 søgeResultat.add(hero);
             }
         }
-                if (!søgeResultat.isEmpty())
-                    for (Superhelt hero : søgeResultat)
-                        System.out.println(hero);
-                else
-                    System.out.println("Inden matchende data fundet med: " + searchTerm);
+        if (!søgeResultat.isEmpty())
+            for (Superhelt hero : søgeResultat)
+                System.out.println(hero);
+        else
+            System.out.println("Inden matchende data fundet med: " + searchTerm);
         return null;
     }
-
 
 
 }
