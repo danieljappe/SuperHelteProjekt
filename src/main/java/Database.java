@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Database {
 
@@ -11,11 +10,7 @@ public class Database {
     }
 
     // Arrayliste til søgeresultat
-    private ArrayList<Superhelt> søgeResultat = new ArrayList<>();
 
-    public ArrayList<Superhelt> getSøgeResultat() {
-        return søgeResultat;
-    }
 
     // Test data
     public Database() {
@@ -32,19 +27,16 @@ public class Database {
     }
 
 
-    public Superhelt searchFor(String searchTerm) {
+    public ArrayList<Superhelt> searchFor(String searchTerm) {
+
+        ArrayList<Superhelt> søgeResultat = new ArrayList<>();
 
         for (Superhelt hero : superhelteArrayList) {
             if (hero.getNavn().toLowerCase().contains(searchTerm.toLowerCase())) {
                 søgeResultat.add(hero);
             }
         }
-        if (!søgeResultat.isEmpty())
-            for (Superhelt hero : søgeResultat)
-                System.out.println(hero);
-        else
-            System.out.println("Inden matchende data fundet med: " + searchTerm);
-        return null;
+        return søgeResultat;
     }
 
 

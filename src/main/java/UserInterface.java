@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -62,7 +63,19 @@ public class UserInterface {
     public void søgPåHelt() {
         System.out.println("Søg på din helt: ");
         String searchTerm = scan.nextLine();
-        Superhelt superhelt = database.searchFor(searchTerm);
+
+        ArrayList<Superhelt> søgeResultat = database.searchFor(searchTerm);
+
+        if (søgeResultat.isEmpty()) {
+            System.out.println("Ingen helte fundet ift søgekriterierne");
+        } else {
+            System.out.println("Succes");
+            for (Superhelt superhelt : søgeResultat) {
+                System.out.println("------------------------\nNavn: " + superhelt.getNavn() +
+                        "\nSuperkraft: " + superhelt.getSuperkraft() + "\nEr menneske: " + superhelt.getMenneske() +
+                        "\nIntroduktionsår: " + superhelt.getIntroÅr() + "\nStrength: " + superhelt.getStrength() + "\n");
+            }
+        }
     }
 
     public void redigerHelt() {
