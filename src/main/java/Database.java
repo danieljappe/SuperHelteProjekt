@@ -9,13 +9,6 @@ public class Database {
         return superhelteArrayList;
     }
 
-    // Test data
-    /*public Database() {
-        createSuperhelt("Batman", "Money", "Ja", 1965, 2);
-        createSuperhelt("Superman", "Kan flyve", "Nej", 1922, 50);
-        createSuperhelt("Spider-man", "Edderkoppekrafter", "Ja", 1946, 4);
-
-    }*/
 
     public void createSuperhelt(String navn, String superkraft, String erMenneske, int introÅr, double strength) {
 
@@ -29,12 +22,17 @@ public class Database {
         ArrayList<Superhelt> søgeResultat = new ArrayList<>();
 
         for (Superhelt hero : superhelteArrayList) {
-            if (hero.getNavn().toLowerCase().contains(searchTerm.toLowerCase())) {
+            if (hero.getNavn().toLowerCase().contains(searchTerm.toLowerCase().trim())) {
                 søgeResultat.add(hero);
             }
         }
         return søgeResultat;
     }
 
+
+    public boolean deleteSuperhero(Superhelt superhero) {
+        boolean success = superhelteArrayList.remove(superhero);
+        return success;
+    }
 
 }

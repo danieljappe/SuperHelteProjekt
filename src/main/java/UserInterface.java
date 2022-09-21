@@ -15,6 +15,7 @@ public class UserInterface {
             System.out.println("2: Se listen over helte");
             System.out.println("3: Find en helt i databsen");
             System.out.println("4: Rediger en helt i databasen");
+            System.out.println("5: Fjern en helt fra databasen");
             System.out.println("9: Afslut program");
             try {
                 valg = scan.nextInt();
@@ -28,6 +29,8 @@ public class UserInterface {
                     søgPåHelt();
                 } else if (valg == 4) {
                     redigerHelt();
+                } else if (valg == 5) {
+                    deleteHelt();
                 } else if (valg == 9) {
                     System.out.println("Lukker program...");
                     System.exit(0);
@@ -127,7 +130,6 @@ public class UserInterface {
             System.out.println(i + 1 + ":" + database.getSuperhelteArrayList().get(i));
         }
 
-
         System.out.println("Indtast nummer på den helt der skal redigeres: ");
         int nr = scan.nextInt();
         scan.nextLine(); // scannerbug
@@ -159,7 +161,7 @@ public class UserInterface {
         // Edit IntroÅr
         System.out.println("Introduktionsår: " + editSuperhelt.getIntroÅr());
         do {
-            String nyIntroÅr = scan.nextLine();
+            String nyIntroÅr = scan.nextLine().trim();
             if (!nyIntroÅr.isEmpty()) {
                 try {
                     editSuperhelt.setIntroÅr(Integer.parseInt(nyIntroÅr));
@@ -174,7 +176,7 @@ public class UserInterface {
         // Edit Strength
         do {
             System.out.println("Strength: " + editSuperhelt.getStrength());
-            String nyStrength = scan.nextLine();
+            String nyStrength = scan.nextLine().trim();
             if (!nyStrength.isEmpty()) {
                 try {
                     editSuperhelt.setStrength(Double.parseDouble(nyStrength));
@@ -185,6 +187,21 @@ public class UserInterface {
                 }
             }
         } while (fejl == true);
+    }
+
+    public void deleteHelt() {
+        for (int i = 0; i < database.getSuperhelteArrayList().size(); i++) {
+            System.out.println(i + 1 + ":" + database.getSuperhelteArrayList().get(i));
+        }
+
+        System.out.println("Indtast nummer på den helt der skal slettes: ");
+        int nr = scan.nextInt();
+        scan.nextLine(); // scannerbug
+
+        Superhelt deleteSuperhelt = database.getSuperhelteArrayList().get(nr - 1); // index starter fra 0
+
+        System.out.println("Slet en helt: " + deleteSuperhelt);
+        database.deleteSuperhero(deleteSuperhelt);
     }
 }
 
