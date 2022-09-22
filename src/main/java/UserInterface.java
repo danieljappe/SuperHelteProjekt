@@ -9,8 +9,10 @@ public class UserInterface {
     public void startMenu() {
         int valg = 0;
         boolean fejl = false;
+        System.out.println("----------------------------------\n" +
+                            "Velkommen til Superhelte-databasen" +
+                            "\n----------------------------------");
         do {
-            System.out.println("\nVelkommen til Superhelte-databasen\n");
             System.out.println("1: Opret din superhelt");
             System.out.println("2: Se listen over helte");
             System.out.println("3: Find en helt i databsen");
