@@ -10,9 +10,9 @@ public class UserInterface {
         int valg = 0;
         boolean fejl = false;
         System.out.println("----------------------------------\n" +
-                            "Velkommen til Superhelte-databasen" +
-                            "\n----------------------------------");
+                            "Velkommen til Superhelte-databasen");
         do {
+            System.out.println("----------------------------------");
             System.out.println("1: Opret din superhelt");
             System.out.println("2: Se listen over helte");
             System.out.println("3: Find en helt i databsen");
@@ -57,8 +57,23 @@ public class UserInterface {
         String superkraft = scan.nextLine();
 
         // Opret menneske
-        System.out.print("Er din helt et menneske? ");
-        String menneske = scan.nextLine();
+        System.out.print("Er din helt et menneske? \"j/n\": ");
+        boolean opretMenneskeFejl = false;
+        boolean menneske = false;
+        String svar;
+        do {
+            svar = scan.nextLine().trim().toLowerCase();
+            if (svar.equals("j")) {
+                menneske = true;
+                break;
+            } else if (svar.equals("n")) {
+                menneske = false;
+                break;
+            } else {
+                System.out.println("Tast venligst \"j\" eller \"n\"");
+                opretMenneskeFejl = true;
+            }
+        } while (opretMenneskeFejl = true);
 
         // Opret IntroÅr
         int introÅr = 0;
@@ -79,7 +94,7 @@ public class UserInterface {
         // Opret strength
         double strength = 0;
         do {
-            System.out.println("Indtast strength: ");
+            System.out.print("Indtast strength: ");
             try {
                 strength = scan.nextDouble();
                 fejl = false;
@@ -91,9 +106,6 @@ public class UserInterface {
             }
         } while (fejl == true);
 
-        System.out.print("Indtast strength (Et menneske svarer til 1.0): ");
-
-
 
         // Slut
         database.createSuperhelt(navn, superkraft, menneske, introÅr, strength);
@@ -102,8 +114,9 @@ public class UserInterface {
     public void seHelte() {
         System.out.println("Her kan du se listen over gemte helte: ");
         for (Superhelt helt : database.getSuperhelteArrayList())
-            System.out.println("------------------------\nNavn: " + helt.getNavn() + "\nSuperkraft: " + helt.getSuperkraft() + "\nEr menneske: " + helt.getMenneske() +
-                    "\nIntroduktionsår: " + helt.getIntroÅr() + "\nStrength: " + helt.getStrength() + "\n");
+            System.out.println("------------------------\nNavn: " + helt.getNavn() + "\nSuperkraft: " +
+                    helt.getSuperkraft() + "\nEr menneske: " + helt.getMenneske() + "\nIntroduktionsår: " +
+                    helt.getIntroÅr() + "\nStrength: " + helt.getStrength() + "\n");
 
     }
 
@@ -155,10 +168,10 @@ public class UserInterface {
             editSuperhelt.setSuperkraft(nySuperkraft);
 
         // Edit menneske
-        System.out.println("Er menneske: " + editSuperhelt.getMenneske());
+        System.out.println("Er menneske: " + editSuperhelt.getMenneske() + "Indtast j/n");
         String nyErMenneske = scan.nextLine();
         if (!nyErMenneske.isEmpty())
-            editSuperhelt.setErMenneske(nyErMenneske);
+            editSuperhelt.setErMenneske(Boolean.parseBoolean(nyErMenneske));
 
         // Edit IntroÅr
         System.out.println("Introduktionsår: " + editSuperhelt.getIntroÅr());
@@ -202,7 +215,7 @@ public class UserInterface {
 
         Superhelt deleteSuperhelt = database.getSuperhelteArrayList().get(nr - 1); // index starter fra 0
 
-        System.out.println("Slet en helt: " + deleteSuperhelt);
+        System.out.println("Helt slettet");
         database.deleteSuperhero(deleteSuperhelt);
     }
 }

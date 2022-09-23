@@ -2,11 +2,11 @@ public class Superhelt {
 
     private String navn;
     private String superkraft;
-    private String erMenneske;
+    private boolean erMenneske;
     private int introÅr;
     private double strength;
 
-    public Superhelt(String navn, String superkraft, String erMenneske, int introÅr, double strength) {
+    public Superhelt(String navn, String superkraft, boolean erMenneske, int introÅr, double strength) {
         this.navn = navn;
         this.superkraft = superkraft;
         this.erMenneske = erMenneske;
@@ -31,10 +31,10 @@ public class Superhelt {
     }
 
     public String getMenneske() {
-        return erMenneske;
+      return erMenneske ? "Ja" : "Nej";
     }
 
-    public void setErMenneske(String erMenneske) {
+    public void setErMenneske(boolean erMenneske) {
         this.erMenneske = erMenneske;
     }
 

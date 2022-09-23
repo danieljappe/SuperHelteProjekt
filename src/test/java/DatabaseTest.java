@@ -17,9 +17,9 @@ class DatabaseTest {
         database = new Database();
 
         // Act
-        database.createSuperhelt("Batman", "Money", "Ja", 1965, 2);
-        database.createSuperhelt("Superman", "Kan flyve", "Nej", 1922, 50);
-        database.createSuperhelt("Spider-man", "Edderkoppekrafter", "Ja", 1946, 4);
+        database.createSuperhelt("Batman", "Money", true, 1965, 2);
+        database.createSuperhelt("Superman", "Kan flyve", false, 1922, 50);
+        database.createSuperhelt("Spider-man", "Edderkoppekrafter", true, 1946, 4);
 
     }
 
@@ -27,7 +27,7 @@ class DatabaseTest {
     @Disabled
     void createSuperhelt() {
         // Act
-        database.createSuperhelt("Iron Man", "Dragt", "Ja", 1956, 2);
+        database.createSuperhelt("Iron Man", "Dragt", true, 1956, 2);
 
 
     }
