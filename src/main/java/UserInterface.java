@@ -10,7 +10,7 @@ public class UserInterface {
         int valg = 0;
         boolean fejl = false;
         System.out.println("----------------------------------\n" +
-                            "Velkommen til Superhelte-databasen");
+                "Velkommen til Superhelte-databasen");
         do {
             System.out.println("----------------------------------");
             System.out.println("1: Opret din superhelt");
@@ -98,8 +98,7 @@ public class UserInterface {
             try {
                 strength = scan.nextDouble();
                 fejl = false;
-            }
-            catch (InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println("Der skete en fejl, prøv igen");
                 scan.nextLine(); // Fix for scanner bug
                 fejl = true;
@@ -140,11 +139,11 @@ public class UserInterface {
 
     public void redigerHelt() {
         boolean fejl = false;
+        boolean redigerHeltFejl = false;
 
         for (int i = 0; i < database.getSuperhelteArrayList().size(); i++) {
             System.out.println(i + 1 + ":" + database.getSuperhelteArrayList().get(i));
         }
-
         System.out.println("Indtast nummer på den helt der skal redigeres: ");
         int nr = scan.nextInt();
         scan.nextLine(); // scannerbug
@@ -205,18 +204,26 @@ public class UserInterface {
     }
 
     public void deleteHelt() {
+        boolean deleteHeltFejl = false;
+
         for (int i = 0; i < database.getSuperhelteArrayList().size(); i++) {
             System.out.println(i + 1 + ":" + database.getSuperhelteArrayList().get(i));
         }
-
         System.out.println("Indtast nummer på den helt der skal slettes: ");
-        int nr = scan.nextInt();
-        scan.nextLine(); // scannerbug
 
-        Superhelt deleteSuperhelt = database.getSuperhelteArrayList().get(nr - 1); // index starter fra 0
-
-        System.out.println("Helt slettet");
-        database.deleteSuperhero(deleteSuperhelt);
+        do {
+            int nr = scan.nextInt();
+            String sletHelt = scan.nextLine(); // scannerbug
+            if (!sletHelt.isEmpty())
+                try {
+                    Superhelt deleteSuperhelt = database.getSuperhelteArrayList().get(nr - 1); // index starter fra 0
+                    System.out.println("Helt slettet");
+                    database.deleteSuperhero(deleteSuperhelt);
+                } catch (Exception e) {
+                    System.out.println("Der skete en fejl, indtast venligst et nummer fra listen");
+                    deleteHeltFejl = true;
+                }
+        } while (deleteHeltFejl == true);
     }
 }
 
