@@ -3,7 +3,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInterface {
-    Database database = new Database();
+    Controller controller = new Controller();
     Scanner scan = new Scanner(System.in);
 
     public void startMenu() {
@@ -107,12 +107,12 @@ public class UserInterface {
 
 
         // Slut
-        database.createSuperhelt(navn, superkraft, menneske, introÅr, strength);
+        controller.createSuperhelt(navn, superkraft, menneske, introÅr, strength);
     }
 
     public void seHelte() {
         System.out.println("Her kan du se listen over gemte helte: ");
-        for (Superhelt helt : database.getSuperhelteArrayList())
+        for (Superhelt helt : controller.getSuperhelteArrayList())
             System.out.println("------------------------\nNavn: " + helt.getNavn() + "\nSuperkraft: " +
                     helt.getSuperkraft() + "\nEr menneske: " + helt.getMenneske() + "\nIntroduktionsår: " +
                     helt.getIntroÅr() + "\nStrength: " + helt.getStrength() + "\n");
@@ -123,7 +123,7 @@ public class UserInterface {
         System.out.println("Søg på din helt: ");
         String searchTerm = scan.nextLine();
 
-        ArrayList<Superhelt> søgeResultat = database.searchFor(searchTerm);
+        ArrayList<Superhelt> søgeResultat = controller.searchFor(searchTerm);
 
         if (søgeResultat.isEmpty()) {
             System.out.println("Ingen helte fundet ift søgekriterierne");
@@ -141,14 +141,14 @@ public class UserInterface {
         boolean fejl = false;
         boolean redigerHeltFejl = false;
 
-        for (int i = 0; i < database.getSuperhelteArrayList().size(); i++) {
-            System.out.println(i + 1 + ":" + database.getSuperhelteArrayList().get(i));
+        for (int i = 0; i < controller.getSuperhelteArrayList().size(); i++) {
+            System.out.println(i + 1 + ":" + controller.getSuperhelteArrayList().get(i));
         }
         System.out.println("Indtast nummer på den helt der skal redigeres: ");
         int nr = scan.nextInt();
         scan.nextLine(); // scannerbug
 
-        Superhelt editSuperhelt = database.getSuperhelteArrayList().get(nr - 1); // index starter fra 0
+        Superhelt editSuperhelt = controller.getSuperhelteArrayList().get(nr - 1); // index starter fra 0
 
 
         System.out.println("Rediger helt: " + editSuperhelt);
@@ -206,8 +206,8 @@ public class UserInterface {
     public void deleteHelt() {
         boolean deleteHeltFejl = false;
 
-        for (int i = 0; i < database.getSuperhelteArrayList().size(); i++) {
-            System.out.println(i + 1 + ":" + database.getSuperhelteArrayList().get(i));
+        for (int i = 0; i < controller.getSuperhelteArrayList().size(); i++) {
+            System.out.println(i + 1 + ":" + controller.getSuperhelteArrayList().get(i));
         }
         System.out.println("Indtast nummer på den helt der skal slettes: ");
 
@@ -216,9 +216,9 @@ public class UserInterface {
             String sletHelt = scan.nextLine(); // scannerbug
             if (!sletHelt.isEmpty())
                 try {
-                    Superhelt deleteSuperhelt = database.getSuperhelteArrayList().get(nr - 1); // index starter fra 0
+                    Superhelt deleteSuperhelt = controller.getSuperhelteArrayList().get(nr - 1); // index starter fra 0
                     System.out.println("Helt slettet");
-                    database.deleteSuperhero(deleteSuperhelt);
+                    controller.deleteSuperhero(deleteSuperhelt);
                 } catch (Exception e) {
                     System.out.println("Der skete en fejl, indtast venligst et nummer fra listen");
                     deleteHeltFejl = true;

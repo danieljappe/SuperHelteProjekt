@@ -11,7 +11,6 @@ public class Database {
 
 
     public void createSuperhelt(String navn, String superkraft, boolean erMenneske, int introÅr, double strength) {
-
         Superhelt superhelt = new Superhelt(navn, superkraft, erMenneske, introÅr, strength);
         superhelteArrayList.add(superhelt);
     }
