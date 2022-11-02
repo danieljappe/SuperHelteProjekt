@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -6,7 +9,7 @@ public class UserInterface {
     Controller controller = new Controller();
     Scanner scan = new Scanner(System.in);
 
-    public void startMenu() {
+    public void startMenu() throws FileNotFoundException {
         int valg = 0;
         boolean fejl = false;
         System.out.println("----------------------------------\n" +
@@ -18,6 +21,8 @@ public class UserInterface {
             System.out.println("3: Find en helt i databsen");
             System.out.println("4: Rediger en helt i databasen");
             System.out.println("5: Fjern en helt fra databasen");
+            System.out.println("6: Load helte");
+            System.out.println("7: Save helte");
             System.out.println("9: Afslut program");
             try {
                 valg = scan.nextInt();
@@ -33,6 +38,10 @@ public class UserInterface {
                     redigerHelt();
                 } else if (valg == 5) {
                     deleteHelt();
+                } else if (valg == 6) {
+                    controller.loadData();
+                } else if (valg == 7) {
+                    controller.saveData();
                 } else if (valg == 9) {
                     System.out.println("Lukker program...");
                     System.exit(0);

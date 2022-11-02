@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class Controller {
@@ -17,5 +19,15 @@ public class Controller {
 
     public void deleteSuperhero(Superhelt deleteSuperhelt) {
         database.deleteSuperhero(deleteSuperhelt);
+    }
+
+    public void saveData() throws FileNotFoundException {
+        FileHandler fileHandler = new FileHandler();
+        fileHandler.saveData(getSuperhelteArrayList());
+    }
+
+    public void loadData() throws FileNotFoundException {
+        FileHandler fileHandler = new FileHandler();
+        fileHandler.loadData();
     }
 }
